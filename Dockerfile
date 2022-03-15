@@ -4,7 +4,7 @@ ENV PATH="/scripts:${PATH}"
 
 COPY ./requirements.txt /requirements.txt
 RUN apt update
-RUN apt install -y python3 python3-pip
+RUN apt install -y python3 python3-pip python3-dev default-libmysqlclient-dev build-essential
 RUN pip install -r /requirements.txt
 
 RUN mkdir /django_test
