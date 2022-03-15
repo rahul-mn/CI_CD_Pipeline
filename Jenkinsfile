@@ -4,12 +4,12 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('draxter67-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('d268aa49-b7cd-475c-b31e-b41be3d36f31')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t draxter67/django-project:1.1 .'
+        sh 'docker build -t draxter67/django-project:1.2 .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push draxter67/django-project:1.1'
+        sh 'docker push draxter67/django-project:1.2'
       }
     }
     stage('Deploy on K8s') {
